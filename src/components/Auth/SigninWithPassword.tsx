@@ -14,7 +14,7 @@ export default function SigninWithPassword() {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData({
       ...data,
       [e.target.name]: e.target.value,
@@ -40,7 +40,7 @@ export default function SigninWithPassword() {
         className="mb-4 [&_input]:py-[15px]"
         placeholder="Enter your email"
         name="email"
-        handleChange={handleChange}
+        onChange={onChange}
         value={data.email}
         icon={<EmailIcon />}
       />
@@ -51,7 +51,7 @@ export default function SigninWithPassword() {
         className="mb-5 [&_input]:py-[15px]"
         placeholder="Enter your password"
         name="password"
-        handleChange={handleChange}
+        onChange={onChange}
         value={data.password}
         icon={<PasswordIcon />}
       />

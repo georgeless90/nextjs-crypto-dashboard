@@ -18,7 +18,6 @@ export async function getPaymentsOverviewData(timeFrame?: string) {
   return { received: [], due: [] };
 }
 
-//console.log("DATA:", data);
   // 1.1 Asi se mapea la data
   const received = data.map((item) => ({
     x: new Date(item.date).toISOString().split("T")[0], // más seguro
@@ -29,8 +28,6 @@ export async function getPaymentsOverviewData(timeFrame?: string) {
     x: new Date(item.date).toISOString().split("T")[0],
     y: Number(item.price_usd) * 0.9,
   }));
-
-  //console.log("FORMATTED", { received, due });
 
   return { received, due };
 }

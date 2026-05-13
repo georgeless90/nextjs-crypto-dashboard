@@ -12,17 +12,15 @@ export async function getWeeksProfitData() {
   console.log("DATA three:", data);
 
   let profitData =  {
-    sales: data.map((t) => ({
+    sales: (data ?? []).map((t) => ({
       x: new Date(t.date).toLocaleDateString("en-US", { weekday: "short" }),
       y: t.amount * 2000,
     })),
-    revenue: data.map((t) => ({
+    revenue: (data ?? []).map((t) => ({
       x: new Date(t.date).toLocaleDateString("en-US", { weekday: "short" }),
       y: t.price,
     })),
   };
-
-  console.log("FORMATTED three", profitData);
 
   return profitData;
 }

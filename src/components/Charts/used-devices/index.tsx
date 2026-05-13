@@ -33,7 +33,7 @@ export async function UsedDevices({
       </div>
 
       <div className="grid place-items-center">
-        <DonutChart data={data} />
+        {/* <DonutChart data={data} /> */}
       </div>
     </div>
   );
