@@ -6,9 +6,11 @@ import { Select } from "@/components/FormElements/select";
 import { ShowcaseSection } from "@/components/Layouts/showcase-section";
 
 
+//2.1 useState para menjera loas fields del formulario 
 import { useState } from "react";
 export function ContactForm() {
 
+  //2.1 Asi se definen las variables con su set para que tome el valor del field
   const [symbol, setSymbol] = useState("");
 
   const [coin, setCoin] = useState("");
@@ -19,9 +21,13 @@ export function ContactForm() {
 
   const [price, setPrice] = useState("");
   
-  async function saveTransaction() {
-    
 
+  //2.1 Aqui no es necesario importar el route del api, solo se crea la function y se invoca el enpoint definido en 
+  // el file route.ts
+  async function saveTransaction() {
+    //2.1 El enpoint lo define la ruta del file route.ts
+    // Es decir /api/transactions.route.ts, 
+    // Pero se puede obviar el route.ts
     const res = await fetch("/api/transactions", {
       method: "POST",
       headers: {
@@ -31,19 +37,23 @@ export function ContactForm() {
         symbol,
         coin,
         type: typeTran,
-        amount: 0.5,
-        price_usd: 45000,
+        amount,
+        price,
       }),
     });
 
     const data = await res.json();
 
-    console.log(data);
+    console.log('hello again');
   }
+
+
   return (
     <ShowcaseSection title="Contact Form" className="!p-6.5">
       <form action="#">
         <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
+          {/* 2.1 Este es un example como como se usan los fields con nextjs */}
+          {/* 2.1 El event onChange debe estar llamado asi tambien en el component de input */}
           <InputGroup
             label="Symbol"
             type="text"
@@ -119,8 +129,8 @@ export function ContactForm() {
 
         <TextAreaGroup label="Message" placeholder="Type your message" /> */}
 
-        <button className="mt-6 flex w-full justify-center rounded-lg bg-primary p-[13px] font-medium text-white hover:bg-opacity-90">
-          Send Trabsaction
+        <button  onClick={saveTransaction} type="button" className="mt-6 flex w-full justify-center rounded-lg bg-primary p-[13px] font-medium text-white hover:bg-opacity-90">
+          Send Transaction
         </button>
       </form>
     </ShowcaseSection>

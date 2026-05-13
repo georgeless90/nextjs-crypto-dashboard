@@ -1,8 +1,9 @@
 import { PeriodPicker } from "@/components/period-picker";
 import { standardFormat } from "@/lib/format-number";
 import { cn } from "@/lib/utils";
-//import { getPaymentsOverviewData } from "@/services/charts.services";
 import { getPaymentsOverviewData } from '@/services/paymentService';
+
+//1.1 Asi se llamar al service para traer datos de la DDBB
 import { PaymentsOverviewChart } from "./chart";
 
 type PropsType = {
@@ -14,11 +15,9 @@ export async function PaymentsOverview({
   timeFrame = "monthly",
   className,
 }: PropsType) {
-  //const data = await getPaymentsOverviewData(timeFrame);
-
-  // const res = await fetch('/api/payments?timeFrame=monthly');
-  // const data = await res.json();
-
+ 
+  //1.1 Asi se llamar al service para traer datos de la DDBB
+  //1.1 Aqui se debe de tener en cuenta como debe devenir la data
   const data = await getPaymentsOverviewData();
   
 
